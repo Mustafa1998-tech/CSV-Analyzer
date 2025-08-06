@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: csv-analyzer
+    env: python
+    region: singapore  # You can change this to your preferred region
+    build:
+      dockerfile: Dockerfile
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.16
+      - key: FLASK_APP
+        value: app.py
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PYTHONDONTWRITEBYTECODE
+        value: "1"
+      - key: PYTHONPATH
+        value: "/opt/render/project/src:/opt/render/project"
+    plan: free
+    numInstances: 1
+    healthCheckPath: /
+    autoDeploy: true
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn --bind 0.0.0.0:$PORT app:app"
