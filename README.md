@@ -1,36 +1,44 @@
 # CSV Analyzer
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Mustafa1998-tech/CSV-Analyzer)
+
 A powerful web application built with Flask for analyzing CSV files. Upload your CSV, and get instant insights including data cleaning, statistical analysis, and visualizations.
 
 ## Features
 
-- 📊 Upload and analyze CSV files
-- 🧹 Automatic data cleaning and preprocessing
-- 📈 Generate statistical summaries and visualizations
-- 📥 Download processed data and analysis results
-- 🎨 Modern, responsive user interface
-- ⚡ Fast and efficient processing
+- Upload and analyze CSV files
+- Automatic data cleaning and preprocessing
+- Generate statistical summaries and visualizations
+- Download processed data and analysis results
+- Modern, responsive user interface with RTL support
+- Docker support for easy deployment
+- One-click deployment to Render
+- Automatic handling of different date formats
+- Smart detection of numeric and categorical data
 
-## Prerequisites
+## Quick Start
+
+### Prerequisites
 
 - Python 3.8 or higher
 - pip (Python package manager)
+- Docker (optional, for containerized deployment)
 
-## Installation
+### Local Development
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/csv-analyzer.git
-   cd csv-analyzer
+   git clone https://github.com/Mustafa1998-tech/CSV-Analyzer.git
+   cd CSV-Analyzer
    ```
 
-2. **Create a virtual environment** (recommended)
+2. **Set up a virtual environment**
    ```bash
-   # On Windows
+   # Windows
    python -m venv venv
    venv\Scripts\activate
    
-   # On macOS/Linux
+   # macOS/Linux
    python3 -m venv venv
    source venv/bin/activate
    ```
@@ -40,89 +48,17 @@ A powerful web application built with Flask for analyzing CSV files. Upload your
    pip install -r requirements.txt
    ```
 
-## Running the Application
-
-1. **Start the development server**
+4. **Run the application**
    ```bash
    python app.py
    ```
 
-2. **Open your web browser and visit**
+5. **Open in your browser**
    ```
    http://localhost:5000
    ```
 
-## Usage
-
-1. Click "Choose File" or drag and drop your CSV file
-2. Click "Analyze CSV" to process your file
-3. View the analysis results
-4. Download the processed files as a ZIP archive
-
-## Project Structure
-
-```
-csv-analyzer/
-├── app.py                # Main Flask application
-├── utils.py              # Data processing and analysis functions
-├── requirements.txt      # Python dependencies
-├── README.md             # This file
-├── uploads/              # Directory for uploaded files
-│   └── ...
-├── results/              # Directory for analysis results
-│   └── ...
-└── templates/            # HTML templates
-    ├── index.html        # Main upload page
-    └── result.html       # Results display page
-```
-
-## Deployment
-
-### Deploying to Render.com
-
-1. Push your code to a GitHub repository
-2. Create a new Web Service on [Render](https://render.com/)
-3. Connect your GitHub repository
-4. Use the following settings:
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `python app.py`
-5. Click "Create Web Service"
-
-## Customization
-
-### Environment Variables
-
-You can configure the application using the following environment variables:
-
-- `FLASK_ENV`: Set to 'production' or 'development' (default: 'development')
-- `PORT`: The port to run the application on (default: 5000)
-- `MAX_CONTENT_LENGTH`: Maximum file upload size in bytes (default: 16MB)
-
-### Adding New Features
-
-1. **Add new analysis functions**
-   - Edit `utils.py` to add new data processing functions
-   - Update the `process_csv` function to include your new analysis
-
-2. **Modify the UI**
-   - Edit the HTML templates in the `templates/` directory
-   - Add new routes in `app.py` if needed
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Built with [Flask](https://flask.palletsprojects.com/)
-- Styled with [Tailwind CSS](https://tailwindcss.com/)
-- Icons by [Font Awesome](https://fontawesome.com/)
-
----
-
-**Happy analyzing!** 🚀
-
-### Docker Deployment
+## Docker Deployment
 
 ### Using Docker Compose (Recommended)
 
@@ -148,26 +84,24 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
    docker run -p 5000:5000 csv-analyzer
    ```
 
-### Deploy to Render
+## Deploy to Render
 
 ### One-Click Deploy
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/yourusername/csv-analyzer)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Mustafa1998-tech/CSV-Analyzer)
 
 ### Manual Deployment
 
-1. **Push your code to GitHub**
+1. **Fork the repository** to your GitHub account
 
 2. **Create a new Web Service on [Render](https://render.com/)**
-   - Connect your GitHub repository
-   - Select the repository
+   - Connect your GitHub account
+   - Select the forked repository
    - Configure the service:
      - **Name**: csv-analyzer (or your preferred name)
      - **Region**: Choose the closest to your users
-     - **Branch**: main (or your preferred branch)
+     - **Branch**: main
      - **Runtime**: Docker
-     - **Build Command**: (leave empty, uses Dockerfile)
-     - **Start Command**: (leave empty, uses CMD from Dockerfile)
      - **Plan**: Free
 
 3. **Add environment variables** (from `.env.example`)
@@ -179,7 +113,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 4. **Click "Create Web Service"**
 
-### Project Structure
+## Project Structure
 
 ```
 csv-analyzer/
@@ -198,9 +132,9 @@ csv-analyzer/
     └── results.html      # Detailed results page
 ```
 
-### Configuration
+## Configuration
 
-#### Environment Variables
+### Environment Variables
 
 Copy `.env.example` to `.env` and modify as needed:
 
@@ -220,27 +154,27 @@ UPLOAD_FOLDER=uploads
 OUTPUT_FOLDER=outputs
 ```
 
-### Features in Detail
+## Features in Detail
 
-#### Data Cleaning
+### Data Cleaning
 - Automatic handling of missing values
 - Smart date parsing with multiple format support
 - Numeric data type detection and conversion
 - Outlier detection and handling
 
-#### Analysis
+### Analysis
 - Basic statistical summaries
 - Distribution visualization
 - Correlation analysis
 - Data quality assessment
 
-#### Export Options
+### Export Options
 - Download cleaned data as CSV
 - Download analysis reports
 - Export visualizations as images
 - Bundle all results in a ZIP file
 
-### Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
@@ -248,11 +182,11 @@ OUTPUT_FOLDER=outputs
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-### License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### Acknowledgments
+## Acknowledgments
 
 - Built with Flask, Pandas, and Matplotlib
 - Inspired by the need for simple CSV analysis tools
