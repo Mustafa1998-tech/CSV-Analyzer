@@ -3,8 +3,9 @@ services:
     name: csv-analyzer
     env: python
     region: singapore  # You can change this to your preferred region
-    build:
-      dockerfile: Dockerfile
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn --bind 0.0.0.0:$PORT app:app"
     envVars:
       - key: PYTHON_VERSION
         value: 3.9.16
@@ -18,11 +19,4 @@ services:
         value: "1"
       - key: PYTHONDONTWRITEBYTECODE
         value: "1"
-      - key: PYTHONPATH
-        value: "/opt/render/project/src:/opt/render/project"
-    plan: free
-    numInstances: 1
     healthCheckPath: /
-    autoDeploy: true
-    buildCommand: "./build.sh"
-    startCommand: "gunicorn --bind 0.0.0.0:$PORT app:app"
